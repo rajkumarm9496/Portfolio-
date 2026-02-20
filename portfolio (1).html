@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajkumar M — Senior Product Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #00C9A7;
+  --teal-dim: rgba(0,201,167,0.1);
+  --teal-glow: rgba(0,201,167,0.2);
+  --dark: #07100F;
+  --dark2: #0C1917;
+  --dark3: #111F1D;
+  --mid: #1A2E2B;
+  --text: #C4D8D4;
+  --text-dim: #6E9590;
+  --white: #EEF8F6;
+  --accent: #FFD166;
+  --red: #FF6B6B;
+  --green: #06D6A0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 7vw;display:flex;justify-content:space-between;align-items:center;background:rgba(7,16,15,0.9);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,201,167,0.08);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--white);letter-spacing:-0.02em;text-decoration:none;}
+.nav-logo span{color:var(--teal);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--text-dim);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-cta{padding:8px 20px;background:var(--teal);color:var(--dark);border-radius:100px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:opacity 0.2s;}
+.nav-cta:hover{opacity:0.85;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 7vw 90px;position:relative;background:radial-gradient(ellipse 70% 60% at 85% 15%,rgba(0,201,167,0.12) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 5% 90%,rgba(0,122,101,0.08) 0%,transparent 60%),var(--dark);}
+.hero-content{max-width:900px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(0,201,167,0.25);padding:6px 16px;border-radius:100px;margin-bottom:28px;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(52px,8.5vw,120px);font-weight:800;line-height:0.92;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px;}
+.hero h1 .line2{color:var(--teal);display:block;}
+.hero-sub{font-size:18px;color:var(--text-dim);max-width:580px;line-height:1.6;margin-bottom:40px;border-left:2px solid var(--teal);padding-left:20px;}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;margin-bottom:48px;}
+.hero-stat .num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--teal);line-height:1;}
+.hero-stat .label{font-size:12px;color:var(--text-dim);margin-top:4px;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{padding:14px 32px;background:var(--teal);color:var(--dark);border-radius:100px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,201,167,0.3);}
+.btn-ghost{padding:14px 32px;background:transparent;color:var(--teal);border:1px solid rgba(0,201,167,0.35);border-radius:100px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-ghost:hover{background:var(--teal-dim);}
+.hero-scroll{position:absolute;right:7vw;bottom:40px;writing-mode:vertical-rl;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);display:flex;align-items:center;gap:10px;}
+.hero-scroll::after{content:'';width:1px;height:50px;background:linear-gradient(to bottom,var(--teal),transparent);}
+
+/* SECTIONS */
+section{padding:100px 7vw;position:relative;}
+section+section{border-top:1px solid rgba(0,201,167,0.06);}
+.section-tag{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--teal);}
+h2{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,52px);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:48px;}
+p{color:var(--text);margin-bottom:18px;}
+p:last-child{margin-bottom:0;}
+strong{color:var(--white);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.about-metrics{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(0,201,167,0.06);border:1px solid rgba(0,201,167,0.12);border-radius:14px;overflow:hidden;}
+.metric-card{background:var(--dark2);padding:28px;transition:background 0.3s;}
+.metric-card:hover{background:var(--dark3);}
+.metric-card .n{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;color:var(--teal);line-height:1;margin-bottom:6px;}
+.metric-card .l{font-size:12px;color:var(--text-dim);line-height:1.4;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+.chip{padding:6px 16px;border-radius:100px;font-size:12px;font-weight:500;}
+.ct{background:var(--teal-dim);border:1px solid rgba(0,201,167,0.25);color:var(--teal);}
+.cw{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--white);}
+.ca{background:rgba(255,209,102,0.1);border:1px solid rgba(255,209,102,0.25);color:var(--accent);}
+
+/* PROJECTS */
+.projects-section{background:var(--dark);}
+.project-card{background:var(--dark2);border:1px solid rgba(0,201,167,0.1);border-radius:20px;overflow:hidden;margin-bottom:32px;transition:border-color 0.3s,transform 0.3s;}
+.project-card:hover{border-color:rgba(0,201,167,0.3);transform:translateY(-3px);}
+.project-card.featured{display:grid;grid-template-columns:1fr 1fr;min-height:440px;}
+.project-visual{background:var(--dark3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:40px;}
+.project-visual.enach{background:linear-gradient(135deg,#0C1917 0%,#0D2420 100%);}
+.project-visual.vanghee{background:linear-gradient(135deg,#0C1917 0%,#0D1F2E 100%);}
+.project-visual.muladhanam{background:linear-gradient(135deg,#0C1917 0%,#1A1A0D 100%);}
+.project-info{padding:48px;}
+.project-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;}
+.project-tag.live{color:var(--green);}
+.project-tag.live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
+.project-tag.current{color:var(--accent);}
+.project-tag.current::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2s infinite;}
+.project-info h3{font-family:'Syne',sans-serif;font-size:clamp(22px,2.5vw,32px);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:8px;}
+.project-company{font-size:13px;color:var(--text-dim);margin-bottom:16px;}
+.project-desc{font-size:15px;color:var(--text);line-height:1.65;margin-bottom:24px;}
+.project-stats{display:flex;gap:32px;flex-wrap:wrap;padding:20px 0;border-top:1px solid rgba(0,201,167,0.08);border-bottom:1px solid rgba(0,201,167,0.08);margin-bottom:24px;}
+.ps-item .pn{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--teal);}
+.ps-item .pl{font-size:11px;color:var(--text-dim);margin-top:2px;}
+.project-links{display:flex;gap:12px;flex-wrap:wrap;}
+.pl-btn{padding:9px 20px;border-radius:100px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;}
+.pl-btn.primary{background:var(--teal);color:var(--dark);}
+.pl-btn.primary:hover{box-shadow:0 8px 24px rgba(0,201,167,0.3);transform:translateY(-1px);}
+.pl-btn.ghost{background:transparent;color:var(--teal);border:1px solid rgba(0,201,167,0.3);}
+.pl-btn.ghost:hover{background:var(--teal-dim);}
+
+/* MOCK UI ELEMENTS */
+.mock-dashboard{width:100%;max-width:340px;background:rgba(7,16,15,0.8);border:1px solid rgba(0,201,167,0.2);border-radius:12px;padding:16px;font-size:10px;}
+.mock-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(0,201,167,0.1);}
+.mock-logo{font-family:'Syne',sans-serif;font-size:12px;font-weight:800;color:var(--teal);}
+.mock-title{font-size:11px;color:var(--white);font-weight:600;margin-bottom:10px;}
+.mock-cards{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
+.mc{padding:8px;border-radius:6px;text-align:center;}
+.mc-purple{background:rgba(148,103,189,0.15);border:1px solid rgba(148,103,189,0.2);}
+.mc-yellow{background:rgba(255,209,102,0.12);border:1px solid rgba(255,209,102,0.2);}
+.mc-red{background:rgba(255,107,107,0.12);border:1px solid rgba(255,107,107,0.2);}
+.mc-green{background:rgba(0,201,167,0.12);border:1px solid rgba(0,201,167,0.2);}
+.mc .label{font-size:8px;color:var(--text-dim);margin-bottom:3px;}
+.mc .val{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--white);}
+.mock-row{display:flex;gap:4px;margin-bottom:4px;align-items:center;}
+.mock-cell{height:10px;border-radius:2px;background:rgba(255,255,255,0.07);}
+.mock-status{padding:2px 7px;border-radius:20px;font-size:8px;font-weight:700;}
+.ms-green{background:rgba(0,201,167,0.2);color:#00C9A7;}
+.ms-red{background:rgba(255,107,107,0.2);color:#FF6B6B;}
+.ms-yellow{background:rgba(255,209,102,0.2);color:#FFD166;}
+
+/* VANGHEE MOCK */
+.mock-vanghee{width:100%;max-width:340px;background:rgba(7,16,15,0.8);border:1px solid rgba(0,150,255,0.2);border-radius:12px;padding:16px;}
+.mock-bank-logos{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.bank-chip{padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;font-size:8px;color:var(--text-dim);}
+.flow-mini{display:flex;align-items:center;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+.flow-node-mini{padding:6px 10px;background:var(--dark3);border:1px solid rgba(0,201,167,0.2);border-radius:6px;font-size:8px;color:var(--white);text-align:center;}
+.flow-node-mini.hl{background:var(--teal-dim);border-color:var(--teal);color:var(--teal);}
+.flow-arr{font-size:10px;color:var(--teal);opacity:0.5;}
+
+/* MULADHANAM MOCK */
+.mock-muladhanam{width:100%;max-width:340px;}
+.mula-logo{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--accent);margin-bottom:8px;}
+.mula-sub{font-size:9px;color:var(--text-dim);margin-bottom:14px;}
+.mula-stat{display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,209,102,0.05);border:1px solid rgba(255,209,102,0.15);border-radius:8px;margin-bottom:6px;}
+.mula-stat .k{font-size:9px;color:var(--text-dim);}
+.mula-stat .v{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--accent);}
+
+/* CASE STUDY SECTION */
+.case-study{background:var(--dark2);padding:80px 7vw;}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+.cs-card{background:var(--dark3);border:1px solid rgba(0,201,167,0.08);border-radius:14px;padding:32px;transition:border-color 0.3s;}
+.cs-card:hover{border-color:rgba(0,201,167,0.25);}
+.cs-card .challenge{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);font-weight:600;margin-bottom:8px;}
+.cs-card .solution{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);font-weight:600;margin-bottom:8px;}
+.cs-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.cs-card p{font-size:13px;color:var(--text-dim);line-height:1.6;margin:0;}
+
+/* CONTACT */
+.contact-section{text-align:center;padding:120px 7vw;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(0,201,167,0.07) 0%,transparent 70%),var(--dark2);}
+.contact-section h2{margin-bottom:16px;}
+.contact-section p{color:var(--text-dim);max-width:480px;margin:0 auto 40px;}
+.contact-chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+.contact-chip{padding:10px 20px;background:var(--teal-dim);border:1px solid rgba(0,201,167,0.25);border-radius:100px;font-size:13px;color:var(--teal);}
+
+/* FOOTER */
+footer{padding:32px 7vw;border-top:1px solid rgba(0,201,167,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+footer .fl{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);}
+footer .fl span{color:var(--teal);}
+footer p{font-size:12px;color:var(--text-dim);margin:0;}
+.social-links{display:flex;gap:16px;}
+.social-links a{font-size:12px;color:var(--text-dim);text-decoration:none;transition:color 0.2s;}
+.social-links a:hover{color:var(--teal);}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fi.visible{opacity:1;transform:translateY(0);}
+.fi-d1{transition-delay:0.1s;}
+.fi-d2{transition-delay:0.2s;}
+.fi-d3{transition-delay:0.3s;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-grid,.project-card.featured,.cs-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  section{padding:70px 6vw;}
+  .hero{padding:0 6vw 70px;}
+  .project-visual{min-height:280px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Rajkumar<span>.</span>M</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:rajkumarm9496@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Available · Bengaluru · 15 Days Notice</div>
+    <h1>Senior<span class="line2">Product Designer</span></h1>
+    <p class="hero-sub">10+ years designing enterprise FinTech, B2B SaaS, and banking products that are live, scaled, and trusted by India's top banks.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">10+</div><div class="label">Years Experience</div></div>
+      <div class="hero-stat"><div class="num">₹10L Cr</div><div class="label">Transactions on my products</div></div>
+      <div class="hero-stat"><div class="num">9+</div><div class="label">Banks Integrated</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="label">Live Banking Products</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#work" class="btn-primary">View My Work ↓</a>
+      <a href="mailto:rajkumarm9496@gmail.com" class="btn-ghost">Get in Touch →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">About Me</div>
+  <div class="about-grid">
+    <div>
+      <h2>Designing systems that move money for millions</h2>
+      <p>I'm a Senior Product Designer with <strong>10+ years of end-to-end UX ownership</strong> — from zero-to-one product strategy to shipping dev-ready design systems. My work lives at the intersection of complex FinTech workflows, enterprise B2B SaaS, and AI-powered design tooling.</p>
+      <p>Currently at <strong>ThillaiS Analytical Solutions</strong>, I've designed live banking products used by ICICI, YES Bank, City Union Bank, Kotak, and 5+ more — processing over <strong>₹10 Lakh Crores in transactions</strong> since launch.</p>
+      <p>I combine deep UX strategy with modern AI workflows — using Claude, NotebookLM, and MAKE to accelerate research synthesis, prototype generation, and design-to-code handoff.</p>
+      <div class="chips">
+        <span class="chip ct">UX Strategy</span>
+        <span class="chip ct">Design Systems</span>
+        <span class="chip ct">FinTech / Banking</span>
+        <span class="chip ct">B2B SaaS</span>
+        <span class="chip cw">Figma Advanced</span>
+        <span class="chip cw">WCAG 2.1</span>
+        <span class="chip cw">Prototyping</span>
+        <span class="chip ca">Claude AI</span>
+        <span class="chip ca">Prompt-to-Code</span>
+        <span class="chip ca">NotebookLM</span>
+      </div>
+    </div>
+    <div>
+      <div class="about-metrics">
+        <div class="metric-card fi fi-d1">
+          <div class="n">50%</div>
+          <div class="l">Faster UI scaling with enterprise design systems</div>
+        </div>
+        <div class="metric-card fi fi-d2">
+          <div class="n">40%</div>
+          <div class="l">Reduction in design-to-dev handoff time via AI workflows</div>
+        </div>
+        <div class="metric-card fi fi-d3">
+          <div class="n">25%+</div>
+          <div class="l">User retention increase on fintech dashboards</div>
+        </div>
+        <div class="metric-card fi fi-d1">
+          <div class="n">0→1</div>
+          <div class="l">Built 3 live banking products from scratch, solo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-tag">Selected Work</div>
+  <h2>Live products. Real scale.<br>Solo ownership.</h2>
+
+  <!-- PROJECT 1: eNACH -->
+  <div class="project-card featured fi">
+    <div class="project-visual enach">
+      <div class="mock-dashboard">
+        <div class="mock-header">
+          <span class="mock-logo">TransBnk</span>
+          <span style="font-size:9px;color:var(--text-dim);">TrustHub Platform</span>
+        </div>
+        <div class="mock-title">NACH Dashboard</div>
+        <div class="mock-cards">
+          <div class="mc mc-purple"><div class="label">Requested</div><div class="val">142</div></div>
+          <div class="mc mc-yellow"><div class="label">In Progress</div><div class="val">89</div></div>
+          <div class="mc mc-red"><div class="label">Rejected</div><div class="val">23</div></div>
+          <div class="mc mc-green"><div class="label">Complete</div><div class="val">318</div></div>
+        </div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:6px;font-weight:600;">Mandate Tracking</div>
+        <div class="mock-row"><div class="mock-cell" style="width:90px;"></div><div class="mock-cell" style="width:50px;"></div><div class="mock-cell" style="width:40px;"></div><div class="mock-status ms-green">Complete</div></div>
+        <div class="mock-row"><div class="mock-cell" style="width:85px;"></div><div class="mock-cell" style="width:55px;"></div><div class="mock-cell" style="width:40px;"></div><div class="mock-status ms-yellow">In Progress</div></div>
+        <div class="mock-row"><div class="mock-cell" style="width:90px;"></div><div class="mock-cell" style="width:50px;"></div><div class="mock-cell" style="width:40px;"></div><div class="mock-status ms-red">Rejected</div></div>
+        <div class="flow-mini" style="margin-top:12px;">
+          <div class="flow-node-mini">Client</div><div class="flow-arr">→</div>
+          <div class="flow-node-mini hl">TrustHub</div><div class="flow-arr">→</div>
+          <div class="flow-node-mini">Bank</div><div class="flow-arr">→</div>
+          <div class="flow-node-mini">NPCI ✓</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-info">
+      <div class="project-tag current">● Current Project</div>
+      <h3>Vanghee eNACH 2.0</h3>
+      <p class="project-company">ThillaiS Analytical Solutions · TransBnk TrustHub Platform</p>
+      <p class="project-desc">End-to-end design of a digital recurring collections platform enabling NBFCs, FinTechs, and enterprises to automate EMI and subscription payments using NPCI-approved eNACH mandates. Designed the full mandate lifecycle — from multi-bank registration flows to bulk processing dashboards and rejection diagnostics.</p>
+      <div class="project-stats">
+        <div class="ps-item"><div class="pn">5+</div><div class="pl">Sponsor banks integrated</div></div>
+        <div class="ps-item"><div class="pn">4</div><div class="pl">Auth modes designed for</div></div>
+        <div class="ps-item"><div class="pn">Solo</div><div class="pl">End-to-end ownership</div></div>
+      </div>
+      <div class="chips" style="margin-bottom:24px;">
+        <span class="chip ct">UX Strategy</span>
+        <span class="chip ct">Dashboard Design</span>
+        <span class="chip cw">Multi-bank Flows</span>
+        <span class="chip cw">Dev Spec (AI)</span>
+        <span class="chip ca">NPCI Compliance</span>
+      </div>
+      <div class="project-links">
+        <a href="https://www.figma.com/proto/QCN2rZtlaFeeJMU3F9BbXd/NACH-Dashboard?page-id=0%3A1&node-id=1603-593&viewport=-866%2C197%2C0.6&t=72lIAWYfuSFO29tb-1&scaling=min-zoom&content-scaling=fixed" target="_blank" class="pl-btn primary">View Prototype ↗</a>
+        <a href="https://www.figma.com/make/MP81eyDOlLbDUT3TSbSrKY/Fintech-Dashboard-Animation?fullscreen=1" target="_blank" class="pl-btn ghost">Dashboard Animation ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: Vanghee 2.0 -->
+  <div class="project-card featured fi">
+    <div class="project-visual vanghee">
+      <div class="mock-vanghee">
+        <div class="mock-header" style="border-color:rgba(0,150,255,0.15);">
+          <span style="font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#4ECAFF;">Vanghee</span>
+          <span style="font-size:9px;color:var(--text-dim);">Neo Banking for Business</span>
+        </div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:8px;font-weight:600;">Banking Partners · Live</div>
+        <div class="mock-bank-logos">
+          <span class="bank-chip">ICICI</span><span class="bank-chip">YES</span><span class="bank-chip">City Union</span><span class="bank-chip">IDFC</span><span class="bank-chip">HSBC</span><span class="bank-chip">Kotak</span><span class="bank-chip">IDBI</span><span class="bank-chip">Canara</span><span class="bank-chip">+more</span>
+        </div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:8px;font-weight:600;">Platform Scale</div>
+        <div class="mula-stat" style="background:rgba(78,202,255,0.05);border-color:rgba(78,202,255,0.15);">
+          <span class="k">Monthly Volume</span><span style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#4ECAFF;">₹25,000 Cr</span>
+        </div>
+        <div class="mula-stat" style="background:rgba(78,202,255,0.05);border-color:rgba(78,202,255,0.15);">
+          <span class="k">Total Transactions</span><span style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#4ECAFF;">66M+</span>
+        </div>
+        <div style="font-size:9px;color:var(--text-dim);margin:10px 0 6px;font-weight:600;">B2B NPCI Connector Flow</div>
+        <div class="flow-mini">
+          <div class="flow-node-mini">ERP</div><div class="flow-arr">→</div>
+          <div class="flow-node-mini hl" style="border-color:#4ECAFF;color:#4ECAFF;background:rgba(78,202,255,0.1);">Vanghee</div><div class="flow-arr">→</div>
+          <div class="flow-node-mini">Bank</div><div class="flow-arr">→</div>
+          <div class="flow-node-mini">NPCI</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-info">
+      <div class="project-tag live">● Live in Production</div>
+      <h3>Vanghee 2.0 — B2B Payments Platform</h3>
+      <p class="project-company">ThillaiS Analytical Solutions · vanghee.com · bharatconnect.cub.bank.in</p>
+      <p class="project-desc">Designed the complete UX for Vanghee's Neo Banking platform for MSMEs — covering B2B NPCI Connector, Statutory Payments Dashboard (GST/TDS/PF/ESI), Bulk Payments engine, Virtual Account Collections, and the Bharat Connect ERP integration. Platform processes ₹25,000 Crores monthly across 9+ partner banks.</p>
+      <div class="project-stats">
+        <div class="ps-item"><div class="pn">9+</div><div class="pl">Banks live</div></div>
+        <div class="ps-item"><div class="pn">₹10L Cr</div><div class="pl">Total processed</div></div>
+        <div class="ps-item"><div class="pn">66M+</div><div class="pl">Transactions</div></div>
+      </div>
+      <div class="chips" style="margin-bottom:24px;">
+        <span class="chip ct">B2B SaaS UX</span>
+        <span class="chip ct">NPCI Integration</span>
+        <span class="chip cw">ERP Connector</span>
+        <span class="chip cw">Statutory Payments</span>
+        <span class="chip ca">Live Banking Product</span>
+      </div>
+      <div class="project-links">
+        <a href="https://bharatconnect.cub.bank.in/auth" target="_blank" class="pl-btn primary">View Live Product ↗</a>
+        <a href="https://www.figma.com/proto/Ay5qnWWIBe0QhDbL7hKvmc/CUB-Vanghee-Ai?page-id=0%3A1&node-id=153-1922" target="_blank" class="pl-btn ghost">Figma Prototype ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3: Muladhanam -->
+  <div class="project-card featured fi">
+    <div class="project-visual muladhanam">
+      <div class="mock-muladhanam">
+        <div class="mula-logo">Muladhanam</div>
+        <div class="mula-sub">An Effective Loan Monitoring System</div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:8px;font-weight:600;">Platform Impact</div>
+        <div class="mula-stat">
+          <span class="k">Banks Live</span><span class="v">Canara + BOM</span>
+        </div>
+        <div class="mula-stat">
+          <span class="k">Customer Base</span><span class="v">6,00,000+</span>
+        </div>
+        <div class="mula-stat">
+          <span class="k">Revenue Started</span><span class="v">Jan 2025</span>
+        </div>
+        <div class="mula-stat">
+          <span class="k">Target (6 months)</span><span class="v">30,000 subs</span>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:rgba(255,209,102,0.06);border:1px solid rgba(255,209,102,0.15);border-radius:8px;">
+          <div style="font-size:9px;color:var(--text-dim);margin-bottom:6px;">CC Loan Automation Flow</div>
+          <div class="flow-mini">
+            <div class="flow-node-mini" style="font-size:8px;">MSME</div><div class="flow-arr">→</div>
+            <div class="flow-node-mini hl" style="border-color:var(--accent);color:var(--accent);background:rgba(255,209,102,0.1);font-size:8px;">Muladhanam</div><div class="flow-arr">→</div>
+            <div class="flow-node-mini" style="font-size:8px;">Bank DP ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project-info">
+      <div class="project-tag live">● Live in Production</div>
+      <h3>Muladhanam — FinTech Loan Platform</h3>
+      <p class="project-company">ThillaiS Analytical Solutions · Vanghee · Live with 2 Banks</p>
+      <p class="project-desc">Designed end-to-end UX for Muladhanam — a FinTech product that digitizes and automates stock statement submission and Drawing Power calculation for Cash Credit (CC) loans. Live with <strong>Canara Bank</strong> and <strong>Bank of Maharashtra</strong>, serving 6,00,000 customers — eliminating manual Excel-based submissions and accelerating credit assessments for MSMEs.</p>
+      <div class="project-stats">
+        <div class="ps-item"><div class="pn">2</div><div class="pl">Banks live</div></div>
+        <div class="ps-item"><div class="pn">6L+</div><div class="pl">Customers served</div></div>
+        <div class="ps-item"><div class="pn">₹149/mo</div><div class="pl">Subscription model</div></div>
+      </div>
+      <div class="chips" style="margin-bottom:24px;">
+        <span class="chip ct">Loan Monitoring UX</span>
+        <span class="chip ct">MSME Product Design</span>
+        <span class="chip cw">Stock Statement Flow</span>
+        <span class="chip cw">Drawing Power Calc UI</span>
+        <span class="chip ca">Live Banking Product</span>
+      </div>
+      <div class="project-links">
+        <a href="https://msmedigi.canarabank.bank.in/" target="_blank" class="pl-btn primary">Canara Bank Live ↗</a>
+        <a href="https://msmesuite.bankofmaharashtra.bank.in/" target="_blank" class="pl-btn primary">Bank of Maharashtra Live ↗</a>
+        <a href="https://rajkumarux.designfolio.me/project/67af21c001603fcee7c83976" target="_blank" class="pl-btn ghost">Case Study ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN THINKING -->
+<section class="case-study" id="process">
+  <div class="section-tag">Design Thinking</div>
+  <h2>How I solve hard problems<br>in FinTech UX</h2>
+  <div class="cs-grid">
+    <div class="cs-card fi">
+      <div class="challenge">Challenge</div>
+      <h4>12+ mandate states — how to show without overwhelming ops teams?</h4>
+      <p>Grouped into two mental models: User Journey Insight vs Mandate Status. Color-coded cards enable instant at-a-glance scanning for teams reviewing 100s of mandates daily.</p>
+    </div>
+    <div class="cs-card fi fi-d1">
+      <div class="solution">Design Decision</div>
+      <h4>4 auth modes × 5 banks = 20 different flows in one form</h4>
+      <p>Progressive disclosure form — Step 1 reveals relevant bank/auth fields, Step 2 adapts dynamically. Users see only what's relevant, reducing cognitive load and input errors.</p>
+    </div>
+    <div class="cs-card fi fi-d2">
+      <div class="challenge">Challenge</div>
+      <h4>MSMEs submitting CC loan stock statements via manual Excel sheets</h4>
+      <p>Designed structured digital submission flows with auto-calculation of Drawing Power, alerts for overdue submissions, and ERP-integrated upload — eliminating manual errors entirely.</p>
+    </div>
+    <div class="cs-card fi fi-d3">
+      <div class="solution">Design Decision</div>
+      <h4>ERP to Bank payments without complex API/H2H integration</h4>
+      <p>Designed the Vanghee 2.0 B2B NPCI Connector UX — a plug-and-play interface that allows any ERP to initiate NPCI payments without core architectural changes.</p>
+    </div>
+    <div class="cs-card fi">
+      <div class="challenge">Challenge</div>
+      <h4>Multi-tenant B2B platform — data isolation across corporate clients</h4>
+      <p>Prominent dual context switcher (Transaction Type + Corporation) always visible in header — scopes every action clearly, building operational confidence and preventing multi-tenant errors.</p>
+    </div>
+    <div class="cs-card fi fi-d1">
+      <div class="solution">Design Decision</div>
+      <h4>AI-assisted design-to-dev handoff for faster shipping</h4>
+      <p>Used prompt-driven workflows (Claude + MAKE) to generate dev-ready HTML/CSS/React specs directly from Figma designs — reducing handoff time by 40% and front-end rework significantly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-tag" style="justify-content:center;">Let's Work Together</div>
+  <h2 style="margin-bottom:16px;">Open to Senior Product<br><span style="color:var(--teal);">Designer Roles</span></h2>
+  <p>Based in Bengaluru · 15 days notice period · Open to FinTech, Product Companies, MNCs & Remote</p>
+  <div class="hero-btns" style="justify-content:center;">
+    <a href="mailto:rajkumarm9496@gmail.com" class="btn-primary">Say Hello ↗</a>
+    <a href="https://www.linkedin.com/in/rajkumar-m-848091102/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+  </div>
+  <div class="contact-chips">
+    <span class="contact-chip">📍 Bengaluru</span>
+    <span class="contact-chip">⚡ 15 Days Notice</span>
+    <span class="contact-chip">🏦 FinTech Specialist</span>
+    <span class="contact-chip">🤖 AI Workflow Expert</span>
+    <span class="contact-chip">🌐 Open to Remote</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">Rajkumar<span>.</span>M</div>
+  <p>Senior Product Designer · 10+ Years · FinTech & B2B SaaS</p>
+  <div class="social-links">
+    <a href="mailto:rajkumarm9496@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/rajkumar-m-848091102/" target="_blank">LinkedIn</a>
+    <a href="https://rajkumarux.designfolio.me/" target="_blank">Designfolio</a>
+    <a href="https://www.behance.net" target="_blank">Behance</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
